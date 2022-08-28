@@ -7,7 +7,7 @@ namespace CsvDataTest
     {
         string folderPath = @"C:\Users\DELL\Desktop\Batch_179\CsvFiles\";
         string validStateCensusFileState = "IndiaStateCensusData.csv";
-        string invalidExtensionFileState = "IndiaStateCode.txt";
+
         string invalidDelimiterFileState = "DelimiterIndiaStateCensusData.csv";
         string invalidHeaderState = "WrongIndiaStateCensusData.csv";
         string validExtensionFileStateCode = "IndiaStateCode.csv";
