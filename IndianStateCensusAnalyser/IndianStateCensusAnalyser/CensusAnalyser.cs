@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace IndianStatesCensusAnalyser
+namespace IndianStateCensusAnalyser
 {
     public class CensusAnalyser
     {
@@ -35,7 +35,10 @@ namespace IndianStatesCensusAnalyser
                     throw new CensusAnalyserException(CensusAnalyserException.ExceptionType.DELIMITER_NOT_FOUND, "Delimiter not found");
                 }
                 string[] column = row.Split(',');
-                datamap.Add(column[0], new CensusDataRow(column[0], column[1], column[2], column[3]));
+                if (csvFilePath.Contains("StateCode"))
+                    datamap.Add(column[0], new CensusDataRow(new CensusDataRowStateCode(column[0], column[1], column[2], column[3])));
+                else
+                    datamap.Add(column[0], new CensusDataRow(column[0], column[1], column[2], column[3]));
             }
             return datamap;
         }
